@@ -12,15 +12,14 @@ const imageDataBase = [
 
 const slider = new Slider(imageDataBase);
 
-prevBtn.addEventListener('click', () =>{
-    slider.currentIndex = slider.prev();
-    updateView();
-});
+const createSliderHandler = (direction) => () => {
+        slider.currentIndex = slider[direction === 'next' ? 'next' : 'prev']();
+        updateView();
+    };
 
-nextBtn.addEventListener('click', () =>{
-    slider.currentIndex = slider.next();
-    updateView();
-})
+prevBtn.addEventListener('click', createSliderHandler('prev'));
+
+nextBtn.addEventListener('click',  createSliderHandler('next'));
 
 
 function updateView() {
