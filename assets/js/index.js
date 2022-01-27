@@ -1,27 +1,31 @@
-/* 
-Две самые важные концепции:
-1. Все наши элементы - это объекты
-2. Мы работаем с событиями
+const image = document.querySelector('.slide');
 
-*/
+const [prevBtn, nextBtn] = document.querySelectorAll('.btn');
+
+const imageDataBase = [
+    'https://artguide.com/storage/post/1599/wide_detail_picture.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Kuindzhi_by_I.Kramskoy_%281872%2C_GTG%29.jpg/280px-Kuindzhi_by_I.Kramskoy_%281872%2C_GTG%29.jpg',
+    'https://kulturologia.ru/files/u19001/Kuinji-moonlight-night-1.jpg',
+    'https://s0.rbk.ru/v6_top_pics/media/img/0/99/755486691616990.png',
+    'https://artguide.com/uploads/ckeditor/pictures/6136/content_14_kuindzi_put.jpg',
+];
+
+const slider = new Slider(imageDataBase);
+
+prevBtn.addEventListener('click', () =>{
+    slider.currentIndex = slider.prev();
+    updateView();
+});
+
+nextBtn.addEventListener('click', () =>{
+    slider.currentIndex = slider.next();
+    updateView();
+})
 
 
-/*
-1. getElementById - по id
-2. getElementsByClassName - по классу
-3. getElementsByTagName - по тэгу
-
-4. querySelector - возвращает 1 встреченный элемент по валидному css-селектору
-5. querySelectorAll - возвращает ВСЕ элементы по валидному css-селектору
-
-*/
+function updateView() {
+    image.setAttribute('src', slider.currentSlide);
+}
 
 
- //const p = document.getElementById('unique'); //O(1)
-//const p = document.getElementsByClassName('paragraph');
-
-//const p = document.querySelector('article > p');
-
-const ps = document.querySelectorAll('p');
-
-const ps2 = document.getElementsByTagName('p');
+updateView();
