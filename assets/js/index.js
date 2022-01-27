@@ -5,32 +5,23 @@
 
 */
 
-let i = 1;
-
-function alertWithMessage() {
-    alert(`Hurray! You did it! You clicked ${i++} times!`);
-}
 
 /*
-1. getElementById
-2. getElementsByClassName
-3. getElementsByTagName
+1. getElementById - по id
+2. getElementsByClassName - по классу
+3. getElementsByTagName - по тэгу
 
-4. querySelector
-5. querySelectorAll
+4. querySelector - возвращает 1 встреченный элемент по валидному css-селектору
+5. querySelectorAll - возвращает ВСЕ элементы по валидному css-селектору
 
 */
 
-const [firstBtn] = document.getElementsByTagName('button');
 
-firstBtn.addEventListener('click', alertWithMessage);
+ //const p = document.getElementById('unique'); //O(1)
+//const p = document.getElementsByClassName('paragraph');
 
-function alertYellowBtn() {
-    alert('You clicked yellow button');
-}
+//const p = document.querySelector('article > p');
 
-const yellowButtons = document.getElementsByClassName('yellow-btn');
+const ps = document.querySelectorAll('p');
 
-for (const btn of yellowButtons){
-    btn.addEventListener('click', alertYellowBtn);
-}
+const ps2 = document.getElementsByTagName('p');
