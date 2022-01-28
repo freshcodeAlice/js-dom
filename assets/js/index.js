@@ -65,3 +65,19 @@ function makeCounter() { //Функция-обертка
 
 
 const counter = makeCounter();
+
+
+/*
+Напишите функцию createAdder(n), которая возвращает другую функцию.
+Возвращенная функция должна принимать аргумент m и складывать его с "запомненным" аргументом n.
+
+const adder = createAdder(50);
+adder(10) // 60
+adder(20) // 80
+adder(100) // 180
+*/
+
+const createAdder = (n) => (m) => n = m+n;
+
+const adder = createAdder(50);
+adder(10)
