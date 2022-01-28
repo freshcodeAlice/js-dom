@@ -1,3 +1,5 @@
+'use strict';
+
 const image = document.querySelector('.slide');
 
 const [prevBtn, nextBtn] = document.querySelectorAll('.btn');
@@ -81,3 +83,47 @@ const createAdder = (n) => (m) => n = m+n;
 
 const adder = createAdder(50);
 adder(10)
+
+
+/* Напишите функцию, которая принимает имя и возвращает другую функцию. Возвращенная должна принимать форму приветствия и выводить в консоль фразу типа "<приветствие>, <имя>" */
+
+
+
+
+/* 
+
+function getAlertCounter() {
+    let i = 0;
+    return function () {
+        alert(`You clicked ${i++} times`)
+    }
+}
+
+
+const firstBtn = document.querySelector('#btn');
+firstBtn.addEventListener('click', getAlertCounter());
+
+ */
+
+const firstBtn = document.querySelector('#btn');
+
+function getLog(event) {
+    console.group();
+    console.dir(event.target); // target - на ком сработало событие
+    console.dir(event.currentTarget); //currentTarget - на какой элемент навесили этот обработчик события
+    console.groupEnd();
+
+//    firstBtn.removeEventListener('click', getLog);
+}
+
+firstBtn.addEventListener('click', getLog);
+document.body.addEventListener('click', getLog);
+document.addEventListener('click', getLog);
+window.addEventListener('click', getLog);
+
+const mouseEvent = new MouseEvent('click');
+
+//firstBtn.dispatchEvent(mouseEvent);
+
+
+/* Задача: по нажатию на кнопку вывести в консоль ее содержимое*/
