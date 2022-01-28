@@ -23,10 +23,10 @@ class Slider {
         return this.images[this.currentIndex];
     }
 
-    next() {
+    get next() {
         return (this.currentIndex + 1) % this.images.length;
     }
-    prev () {
+    get prev() {
         return (this.currentIndex - 1 + this.images.length) %  this.images.length;
     }
 

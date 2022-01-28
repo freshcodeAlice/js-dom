@@ -13,7 +13,7 @@ const imageDataBase = [
 const slider = new Slider(imageDataBase);
 
 const createSliderHandler = (direction) => () => {
-        slider.currentIndex = slider[direction === 'next' ? 'next' : 'prev']();
+        slider.currentIndex = slider[direction === 'next' ? 'next' : 'prev'];
         updateView();
     };
 
