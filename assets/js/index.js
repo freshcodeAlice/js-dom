@@ -116,3 +116,11 @@ firstBtn.addEventListener('click', logInnerText);
 function logInnerText({target}) {
 console.log(target.textContent)
 }
+
+/* -------- */
+
+const nextImage = document.querySelector('#img');
+
+const srcAttr = document.createAttribute('src');
+srcAttr.value = imageDataBase[0];
+nextImage.setAttributeNode(srcAttr);
