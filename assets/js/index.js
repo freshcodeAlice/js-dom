@@ -16,15 +16,52 @@ const createSliderHandler = (direction) => () => {
         slider.currentIndex = slider[direction === 'next' ? 'next' : 'prev'];
         updateView();
     };
-
 prevBtn.addEventListener('click', createSliderHandler('prev'));
-
 nextBtn.addEventListener('click',  createSliderHandler('next'));
-
 
 function updateView() {
     image.setAttribute('src', slider.currentSlide);
 }
 
-
 updateView();
+
+
+/* -------------- */
+
+// Замыкание
+
+/*
+let value = 10;
+
+function log() {
+    console.log('LOG function:' + value);
+}
+
+let test = true;
+
+function wrapper () {
+    let value = 20;
+    console.log(value);
+
+}
+
+log();
+
+wrapper();
+*/
+
+
+function makeCounter() { //Функция-обертка
+    let count = 0; // Переменная в замыкании
+    return {
+        increment(){
+            return ++count;
+                },
+        decrement() {
+            return --count;
+        }
+    }
+}
+
+
+const counter = makeCounter();
