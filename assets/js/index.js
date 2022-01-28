@@ -105,25 +105,14 @@ firstBtn.addEventListener('click', getAlertCounter());
 
  */
 
-const firstBtn = document.querySelector('#btn');
-
-function getLog(event) {
-    console.group();
-    console.dir(event.target); // target - на ком сработало событие
-    console.dir(event.currentTarget); //currentTarget - на какой элемент навесили этот обработчик события
-    console.groupEnd();
-
-//    firstBtn.removeEventListener('click', getLog);
-}
-
-firstBtn.addEventListener('click', getLog);
-document.body.addEventListener('click', getLog);
-document.addEventListener('click', getLog);
-window.addEventListener('click', getLog);
-
-const mouseEvent = new MouseEvent('click');
-
-//firstBtn.dispatchEvent(mouseEvent);
-
 
 /* Задача: по нажатию на кнопку вывести в консоль ее содержимое*/
+
+const firstBtn = document.querySelector('#btn');
+
+firstBtn.addEventListener('click', logInnerText);
+
+
+function logInnerText({target}) {
+console.log(target.textContent)
+}
