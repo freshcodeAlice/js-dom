@@ -1,15 +1,26 @@
 'use strict'
 
-const btn = document.querySelector('button');
-const div = document.querySelector('#root');
+// Task: дан инпут, при потере фокуса в диве рядом с ним высвечивается квадрат числа, введенного в инпут
 
-function clickHandler(event) {
-console.dir(event.currentTarget)
+const input = document.querySelector('#input');
+const div = document.querySelector('#value');
+
+input.addEventListener('blur', getSquareElement);
+
+function getSquareElement({target: {value}}) {
+   const numberValue = Number(value);
+   const res = getSquare(numberValue);
+   getTextIntoElement(div, res);
 }
 
+function getSquare (n) {
+    if(!isNaN(n)) {
+        return n*n;
+    } else {
+        return 'Error! Your number isn`t number';
+    }
+}
 
-btn.addEventListener('click', clickHandler, true);
-div.addEventListener('click', clickHandler, false);
-document.body.addEventListener('click', clickHandler, true);
-document.addEventListener('click', clickHandler, true);
-window.addEventListener('click', clickHandler, true);
+function getTextIntoElement(element, text) {
+    element.textContent = text
+}
