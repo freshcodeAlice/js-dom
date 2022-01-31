@@ -108,9 +108,9 @@ firstBtn.addEventListener('click', getAlertCounter());
 
 /* Задача: по нажатию на кнопку вывести в консоль ее содержимое*/
 
-const firstBtn = document.querySelector('#btn');
+//const firstBtn = document.querySelector('#btn');
 
-firstBtn.addEventListener('click', logInnerText);
+//firstBtn.addEventListener('click', logInnerText);
 
 
 function logInnerText({target}) {
@@ -119,8 +119,41 @@ console.log(target.textContent)
 
 /* -------- */
 
+
+
+/* Hometask:
+
+1. По нажатию на кнопку вы меняете две картинки между собой (либо первая, либо вторая).
+Используйте объект аттрибута
+
+2. Сделайте кнопку, которая после первого нажатия на нее становится неактивной (disabled)
+
+*/
+
+// Task 1
+
 const nextImage = document.querySelector('#img');
+const btn = document.querySelector('#btn');
 
 const srcAttr = document.createAttribute('src');
 srcAttr.value = imageDataBase[0];
 nextImage.setAttributeNode(srcAttr);
+
+const clicker = () => {
+    srcAttr.value =  srcAttr.value === imageDataBase[0] ? imageDataBase[1]: imageDataBase[0];
+}
+
+
+btn.addEventListener('click', clicker)
+
+
+// Task 2
+
+const disBtn = document.querySelector('#disabled-btn');
+
+const onceClick = (event) => {
+    event.target.setAttribute('disabled', true);
+    disBtn.removeEventListener('click', onceClick);
+}
+
+disBtn.addEventListener('click', onceClick)
