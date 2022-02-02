@@ -1,25 +1,41 @@
-.slider-container{
-    max-width: 500px;
-    display: flex;
-    justify-content: center;
+@import url('./reset.css');
+
+*{
+    box-sizing: border-box;
 }
 
-.image-container {
-    width: 300px;
+:root {
+    font-family: sans-serif;
+    font-size: 18px;
 }
 
-.slide {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
+.cardsList{
+display: flex;
+flex-flow: row wrap;
+justify-content: space-evenly;
 }
 
-.btn {
-    background-color: transparent;
-    border: none;
-    font-size: 3em;
-    padding: 10px;
-    cursor: pointer;
-    opacity: 0.5;
-    color: dodgerblue;
+.cardWrapper{
+border: 2px solid black;
+margin: 2rem 1rem;
+}
+
+.cardConteiner{
+text-align: center;
+}
+
+.cardImage{
+width: 320px;
+height: 320px;
+object-fit: cover;
+object-position: center;
+}
+
+.cardName{
+margin: 1rem 0;
+font-weight: bold;
+}
+
+.cardDescription{
+
 }
