@@ -18,15 +18,40 @@ justify-content: space-evenly;
 .cardWrapper{
 border: 2px solid black;
 margin: 2rem 1rem;
+display: flex;
 }
 
 .cardConteiner{
+display: flex;
+flex-direction: column;
 text-align: center;
+width: 320px;
+}
+
+.cardImageWrapper {
+width: inherit;
+position: relative;
+height: 320px;
+}
+
+.initials{
+font-size: 2rem;
+display: flex;
+justify-content: center;
+align-items: center;
+color: white;
+height: inherit;
 }
 
 .cardImage{
-width: 320px;
-height: 320px;
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+
+width: inherit;
+height: inherit;
 object-fit: cover;
 object-position: center;
 }
@@ -34,6 +59,10 @@ object-position: center;
 .cardName{
 margin: 1rem 0;
 font-weight: bold;
+}
+
+.cardName:empty::after {
+    content: 'Unknown';
 }
 
 .cardDescription{
