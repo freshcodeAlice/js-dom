@@ -9,13 +9,15 @@ root.append(...HTMLLiElements)
 
 function createUserCard(user) {
 
-    const card = createElement('li', {classNames: ['cardWrapper']}, [
-        createElement('article', {classNames: ['cardConteiner']}, [
-            createImageWrapper(user),
-        createElement('h3', {classNames: ['cardName']}, [document.createTextNode(user.name)]),
-        createElement('p', {classNames: ['cardDescription']}, [[document.createTextNode(user.description)]])])
-    ] )
-        return card;
+    const h3 = createElement('h3', {classNames: ['cardName']}, document.createTextNode(user.name));
+
+    const p = createElement('p', {classNames: ['cardDescription']}, document.createTextNode(user.description));
+
+    const article = createElement('article', 
+    {classNames: ['cardConteiner']}, createImageWrapper(user), h3, p);
+
+
+    return createElement('li', {classNames: ['cardWrapper']}, article);
 }
 
 /**
@@ -24,11 +26,11 @@ function createUserCard(user) {
  * @param {Object} options
  *  @param {sting[]} options.classNames
  *  @param {function} options.onClick
- * @param {Node[]} children
+ * @param {Node} children
  * @returns {HTMLElement} 
  */
 
-function createElement(type, {classNames, onClick = ()=>{}}, children) {
+function createElement(type, {classNames, onClick = ()=>{}}, ...children) {
     const elem = document.createElement(type);
     elem.classList.add(...classNames);
     elem.onclick = onClick;
