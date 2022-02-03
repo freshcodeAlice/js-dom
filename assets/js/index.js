@@ -3,22 +3,18 @@
 const form = document.getElementById('root-form');
 
 
-// form.addEventListener('submit', handleSubmit);
+form.addEventListener('submit', handleSubmit);
 
-// function handleSubmit(event) {
-//     event.preventDefault(); // предотвращает поведение по-умолчанию
+function handleSubmit(event) {
+    event.preventDefault(); // предотвращает поведение по-умолчанию
 
+const {target, 
+    target: {
+        email: {
+            value
+        }
+    }
+} = event;
 
-
-// console.log(event.target);
-// }
-
-
-document.addEventListener('click', (event) =>{
-    event.stopPropagation(); //предотвращает всплытие события
-console.log('click document');
-})
-
-window.addEventListener('click', () => {
- console.log('click window')   
-})
+console.log(value); // form -> input[name='email'] -> value
+}
