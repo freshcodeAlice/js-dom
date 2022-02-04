@@ -2,14 +2,16 @@
 
 const root = document.querySelector('#root');
 
-const HTMLLiElements = data.filter((user) => user.name && user.id && user.description).map((user)=>createUserCard(user));
+// const HTMLLiElements = responseData.filter((user) => user.firstName && user.id && user.description).map((user)=>createUserCard(user));
+
+const HTMLLiElements = responseData.map((user)=>createUserCard(user));
 
 root.append(...HTMLLiElements)
 
 
 function createUserCard(user) {
 
-    const h3 = createElement('h3', {classNames: ['cardName']}, document.createTextNode(user.name));
+    const h3 = createElement('h3', {classNames: ['cardName']}, document.createTextNode(user.firstName));
 
     const p = createElement('p', {classNames: ['cardDescription']}, document.createTextNode(user.description));
 
@@ -26,14 +28,29 @@ function createUserCard(user) {
  * @param {Object} options
  *  @param {sting[]} options.classNames
  *  @param {function} options.onClick
+ * @param {object} options.attributes
  * @param {Node} children
  * @returns {HTMLElement} 
  */
+/*
+Example ob ATTRIBUTES object
+{
+    src: 'https://links.com',
+    alt: 'text',
+    title: 'description',
+}
 
-function createElement(type, {classNames, onClick = ()=>{}}, ...children) {
+*/
+
+function createElement(type, {classNames=[], onClick = ()=>{}, attributes = {}}, ...children) {
     const elem = document.createElement(type);
     elem.classList.add(...classNames);
     elem.onclick = onClick;
+
+    for (const [attrName, attrValue] of Object.entries(attributes)){
+        elem.setAttribute(attrName, attrValue);
+    }
+
     elem.append(...children);
     return elem;
 }
@@ -43,7 +60,7 @@ function createElement(type, {classNames, onClick = ()=>{}}, ...children) {
 function createImage(user) {
     const image = document.createElement('img');
     image.classList.add('cardImage');
-    image.setAttribute('alt', user.name);
+    image.setAttribute('alt', user.firstName);
     image.setAttribute('src', user.profilePicture);
     image.dataset.id = user.id;
 
@@ -56,12 +73,12 @@ function createImage(user) {
 function createImageWrapper(user) {
 const imageWrapper = document.createElement('div');
 imageWrapper.classList.add('cardImageWrapper');
-imageWrapper.style.backgroundColor = stringToColor(user.name);
+imageWrapper.style.backgroundColor = stringToColor(user.firstName);
 imageWrapper.setAttribute('id', `wrapper${user.id}`);
 
 const initials = document.createElement('div');
 initials.classList.add('initials');
-initials.append(document.createTextNode(user.name[0] || ''));
+initials.append(document.createTextNode(user.firstName[0] || ''));
 createImage(user)
 imageWrapper.append(initials);
 
