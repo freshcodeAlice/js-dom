@@ -11,7 +11,9 @@ root.append(...HTMLLiElements)
 
 function createUserCard(user) {
 
-    const h3 = createElement('h3', {classNames: ['cardName']}, document.createTextNode(user.firstName));
+    const h3 = createElement('h3', {classNames: ['cardName']}, document.createTextNode(user.firstName+user.lastName));
+
+    const lorem = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, eius voluptas aut quos exercitationem, impedit saepe mollitia vitae nihil ipsum nam.';
 
     const p = createElement('p', {classNames: ['cardDescription']}, document.createTextNode(user.description));
 
@@ -40,35 +42,36 @@ Example ob ATTRIBUTES object
     title: 'description',
 }
 
+const options = {
+    classNames: [''],
+    attributes: {
+        href: '////',
+        title: ''
+    }
+}
+
 */
 
-function createElement(type, {classNames=[], onClick = ()=>{}, attributes = {}}, ...children) {
+function createElement(type, {classNames=[], eventListeners={}, attributes = {}, dataset={}}, ...children) {
     const elem = document.createElement(type);
     elem.classList.add(...classNames);
-    elem.onclick = onClick;
 
     for (const [attrName, attrValue] of Object.entries(attributes)){
         elem.setAttribute(attrName, attrValue);
+    }
+   
+    for (const [key, value] of Object.entries(dataset)){
+        elem.dataset[key] = value;
+    }
+
+    for (const [type, handler] of Object.entries(eventListeners)){
+        elem.addEventListener(type, handler);
     }
 
     elem.append(...children);
     return elem;
 }
 
-
-
-function createImage(user) {
-    const image = document.createElement('img');
-    image.classList.add('cardImage');
-    image.setAttribute('alt', user.firstName);
-    image.setAttribute('src', user.profilePicture);
-    image.dataset.id = user.id;
-
-    image.addEventListener('error', handleImageError);
-    image.addEventListener('load', handleImageLoad);
-
-    return image;
-}
 
 function createImageWrapper(user) {
 const imageWrapper = document.createElement('div');
@@ -79,7 +82,24 @@ imageWrapper.setAttribute('id', `wrapper${user.id}`);
 const initials = document.createElement('div');
 initials.classList.add('initials');
 initials.append(document.createTextNode(user.firstName[0] || ''));
-createImage(user)
+
+const imageOptions = {
+    classNames: ['cardImage'],
+    eventListeners: {
+        error: handleImageError,
+        load: handleImageLoad
+    },
+    attributes: {
+        src: user.profilePicture,
+        alt: `${user.firstName} ${user.lastName}`,
+    },
+    dataset:{
+        id: user.id
+    }
+}
+
+createElement('img',imageOptions);
+
 imageWrapper.append(initials);
 
 return imageWrapper;
