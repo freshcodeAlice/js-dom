@@ -1,43 +1,60 @@
-const data = [
+
+// READ ONLY
+
+
+const responseData =[
     {id: 1,
-    name: 'John',
-    description:'fafewqrewrqwer2322revzd',
-    profilePicture:'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80'
+    firstName: 'Leonardo',
+    lastName: 'DiCaprio',
+    profilePicture: 'https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTgwNDU1MTIxMTE1Njg2NzY0/gettyimages-1197345888.jpg',
+    contacts: ['https://www.instagram.com/leonardodicaprio/', 
+    'https://twitter.com/leodicaprio',
+    'https://www.facebook.com/LeonardoDiCaprio']
     },
     {id: 2,
-    name: 'Josh',
-    description:'qweqwsxasdqwew',
-    profilePicture:'://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80'
+    firstName: 'Kate',
+    lastName: 'Blanchett',
+    profilePicture: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Cate_Blanchett_Cannes_2018_2_%28cropped_2%29.jpg/640px-Cate_Blanchett_Cannes_2018_2_%28cropped_2%29.jpg',
+    contacts: ['https://www.instagram.com/cate_blanchettofficial/']
     },
     {id: 3,
-    name: 'Jane',
-    description:'yjtykyumjhjhjkgjhhjkhkj',
-    profilePicture:'https://media.istockphoto.com/photos/elegant-beauty-picture-id516208984?k=20&m=516208984&s=612x612&w=0&h=KooFBmqHtO2lz5CFV5Oe87u_12wgKCxHvTHxlYuErCU='
+    firstName: 'Tom',
+    lastName: 'Hiddlestone',
+    profilePicture: 'https://64.media.tumblr.com/2e9976d835e299902ebbdbff19fd7da9/tumblr_nvdj08nV6R1qdge28o1_1280.jpg',
+    contacts: ['https://www.instagram.com/twhiddleston/', 
+    'https://twitter.com/twhiddleston?lang=uk',
+    'https://www.facebook.com/twhiddleston/']
     },
     {id: 4,
-    name: '',
-    description:'k4jh23k4jh23kjhk2jhk',
-    profilePicture:'://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80'
+    firstName: 'Robert',
+    lastName: 'Downey Jr',
+    profilePicture: 'https://i.pinimg.com/736x/3f/bb/b0/3fbbb01666d7c285bb6a2db85b8d6967.jpg',
+    contacts: ['https://www.instagram.com/robertdowneyjr/', 
+    'https://twitter.com/robertdowneyjr',
+    'https://www.facebook.com/robertdowneyjr']
     },
     {id: 5,
-    name: 'Alex',
-    description:';oiu;oxzkxfaklwejlkwej',
-    profilePicture:'https://images.unsplash.com/flagged/photo-1573740144655-bbb6e88fb18a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80'
+    firstName: 'Scarlett',
+    lastName: 'Johansson',
+    profilePicture: 'https://static01.nyt.com/images/2021/07/29/business/29blackwidow-1/29blackwidow-1-mediumSquareAt3X.jpg',
+    contacts: ['https://twitter.com/scarlett_jo', 
+    'https://www.instagram.com/scarlettjohanssonworld/',
+    ]
     },
     {id: 6,
-    name: 'Nathan',
-    description:'lkheklerhtlk3jtk34jh5kjhkwekfjekjfahe',
-    profilePicture:'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'
+    firstName: 'Ryan Rodney',
+    lastName: 'Reynolds',
+    profilePicture: 'https://images.successstory.com/img_people/profile/ryan-reynolds-canda-actor_1454921726.jpg',
+    contacts: ['https://www.instagram.com/vancityreynolds/', 
+    'https://twitter.com/vancityreynolds',
+    'https://www.facebook.com/VancityReynolds']
     },
     {id: 7,
-    name: 'Tracy',
-    description:'rerewervdfgdfgsdfgsdgsdfgsdfg',
-    profilePicture:'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
-    },
-    {id: 8,
-    name: 'James',
-    description:'yjtykyumjhjhjkgjhhjkhkj',
-    profilePicture:'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80'
-    },
-    ];
-    
+    firstName: 'Mark',
+    lastName: 'Ruffalo',
+    profilePicture: 'https://upload.wikimedia.org/wikipedia/commons/2/21/MarkRuffalo07TIFF.jpg',
+    contacts: ['https://www.instagram.com/markruffalo/',
+    'https://twitter.com/markruffalo']
+    }
+
+];
