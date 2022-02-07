@@ -61,3 +61,40 @@ if(regName.test(str)) {
     console.error('error');
 }
 }
+
+/*
+Заменить в строке 'abracadabra' все 'bra' на 'YAY'
+*/
+
+const str1='abracabra';
+
+const regexp2 = /bra/g;
+
+/* 
+В строке 'lorem ipsum' замените каждое слово на 'рыба'
+*/
+
+const regFish = /\b[a-z]+\b/g;
+
+strLorem = 'lorem ipsum';
+
+
+/*
+Valid:
+fe2022
+fe2022-1
+fe2022-55
+FE2020
+fm2022
+fd2022
+
+----
+Invalid:
+fffffe2020
+fE2022
+Fe2022
+fm2022/1
+
+*/
+
+const reg = /^(F[DEM]|f[dem])20[0-9]{2}(-[0-9]+)?$/;
