@@ -5,18 +5,20 @@
     'https://www.facebook.com/LeonardoDiCaprio']*/
 
 const SUPPORTED_SOC_LINK = new Map();
-SUPPORTED_SOC_LINK.set('www.facebook.com', 'img_facebook.jpg');
-SUPPORTED_SOC_LINK.set('www.instagram.com', 'img_insta.jpg');
-SUPPORTED_SOC_LINK.set('twitter.com', 'img_twitter.jpg');
+SUPPORTED_SOC_LINK.set('www.facebook.com', 'fa-facebook');
+SUPPORTED_SOC_LINK.set('www.instagram.com', 'fa-instagram');
+SUPPORTED_SOC_LINK.set('twitter.com', 'fa-twitter');
 
 function createSocLinks(contacts) {
-const socArr = contacts.map((contact)=>{
-    const url = new URL(contact);
-    const mapkey = url.hostname;
-    const icon = SUPPORTED_SOC_LINK.get(mapkey);
-    const img = createElement('img', {attributes: {src: icon}})
-    const a = createElement('a', {attributes: {href: contact}}, img);
+    return contacts.map((contact)=>{
+    const {hostname} = new URL(contact);
+    const classIcon = SUPPORTED_SOC_LINK.get(hostname);
+    return createElement('a', {
+        attributes: {
+            href: contact
+        },
+    classNames: ['fab', classIcon]}
+    );
 
-    return a;
-});
+    });
 }
