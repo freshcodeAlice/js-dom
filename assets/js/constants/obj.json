@@ -1,0 +1,33 @@
+[{
+    "firstName":"Ivan",
+    "lastName":"Ivanov",
+    "age":35,
+    "isSelecter":null,
+    "phones":["4234234","43243243","4234234"],
+    "friend":{
+        "firstName":"1",
+        "lastName":"2"
+    }
+},
+{
+    "firstName":"Ivan",
+    "lastName":"Ivanov",
+    "age":35,
+    "isSelecter":null,
+    "phones":["4234234","43243243","4234234"],
+    "friend":{
+        "firstName":"1",
+        "lastName":"2"
+    }
+},
+{
+    "firstName":"Ivan",
+    "lastName":"Ivanov",
+    "age":35,
+    "isSelecter":null,
+    "phones":["4234234","43243243","4234234"],
+    "friend":{
+        "firstName":"1",
+        "lastName":"2"
+    }
+}]
