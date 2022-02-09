@@ -1,12 +1,30 @@
 'use strict'
 
+//Promise:
+// - pending - ожидание
 
-function foo() {
-setTimeout(()=>{
-    console.log('1');
-    foo();
-}, 0);
-}
+// - fulfilled - исполненный
+// - rejected - отклоненный
 
 
-//foo();
+
+fetch('./assets/js/obj.json')
+        .then((response)=>{
+                return response.json();
+        })
+        .then((data) => {
+               return data
+        })
+        .catch((error)=>{
+            console.log('SOME ERROR!', error)
+        });
+
+
+
+
+
+
+
+
+
+        
