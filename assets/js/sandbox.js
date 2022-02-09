@@ -19,6 +19,7 @@ console.timeEnd('1');
 
 */
 
+/*
 function count() {
     let i = 1;
 
@@ -34,3 +35,21 @@ function count() {
 
 console.time('1');
 count();
+*/
+
+/*
+function countTwo() {
+    let i = 1;
+    const id = setTimeout(function tick() {
+        console.log(i++);
+        if(i<=20){
+            tick();
+        }
+        console.timeEnd('1');
+        clearTimeout(id);
+    }, 100);
+}
+
+countTwo();
+console.time('1');
+*/
