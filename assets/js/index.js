@@ -1,42 +1,27 @@
 'use strict'
 
-function loadImage(src) {
-        const img = document.createElement('img');
-        img.setAttribute('src', src);
+/*
+Task 1: переписать UserCard на асинхронную загрузку данных из json-объекта
+
+Task2: 
+По клику - выделять карточку цветной рамочкой.
+По выделению карточки сохранять id выбранного пользователя в массив.
+В хедере сайта рендерить имена выбранных пользователей.
+Реализовать функционал удаления имен из этого списка.
+Когда имя удаляется из списка - удалять подсветку (выделение) карточки
+
+*/
+
+fetch(url)
+.then((response)=>{
+        return response.json();
+})
+.then((data)=>{
+//запустили рендер и создали кучу карточек
+})
 
 
-        return new Promise((resolve, reject)=>{
-                img.addEventListener('load', () =>{
-                        resolve(img);
-                });
-                img.addEventListener('eror', ()=>{
-                        reject(new Error('Cannot load image'));
-                });
-        })
+
+function getCardActive(event){
+
 }
-
-loadImage('https://wallpaperaccess.com/full/50.jpg')
-.then((img)=>{
-        document.body.append(img);
-})
-.catch((error) => {
-        console.error(error)
-})
-.finally(()=>{
-        console.log('loading is done!')
-});
-
-
-let i = 1;
-
-const myprom = new Promise((res, rej) =>{
-        if(i === 1) {
-                res()
-        } else {
-                rej
-        }
-})
-
-myprom.then(() => {
-        console.log('i really is 1!')
-})
