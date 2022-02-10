@@ -1,33 +1,18 @@
 'use strict'
 
-//Promise:
-// - pending - ожидание
+const schrodingerCat = new Promise((resolve, reject) => {
+        const catDestiny = Math.random();
 
-// - fulfilled - исполненный
-// - rejected - отклоненный
-
-
-const mypromise = new Promise(function(resolve, reject){
-       if(2+2 === 5) {
-               resolve('ok');
-       } else {
-               reject('not ok');
-       }
+        if(catDestiny >= 0.5) {
+                resolve('Cat is alive')
+        } else {
+                reject('Cat is dead');
+        }
 });
-mypromise.then((ok)=>{
-console.log(ok);
-}, (error)=>{
-console.log(error);
-})
+
+schrodingerCat.then(checkCat, checkCat);
 
 
-setTimeout(callback, ms);
-  
-delay(ms).then(calback);
-
-
-function delay(ms){
-return new Promise((resolve, reject) => {
-        setTimeout(resolve, ms);
-})
+function checkCat(result) {
+        console.log(result)
 }
