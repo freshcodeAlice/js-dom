@@ -1,18 +1,24 @@
 'use strict'
 
-const schrodingerCat = new Promise((resolve, reject) => {
-        const catDestiny = Math.random();
-
-        if(catDestiny >= 0.5) {
-                resolve('Cat is alive')
-        } else {
-                reject('Cat is dead');
-        }
-});
-
-schrodingerCat.then(checkCat, checkCat);
+function loadImage(src) {
+        const img = document.createElement('img');
+        img.setAttribute('src', src);
 
 
-function checkCat(result) {
-        console.log(result)
+        return new Promise((resolve, reject)=>{
+                img.addEventListener('load', () =>{
+                        resolve(img);
+                });
+                img.addEventListener('eror', ()=>{
+                        reject(new Error('Cannot load image'));
+                });
+        })
 }
+
+loadImage('https://wallpaperaccess.com/full/50.jpg')
+.then((img)=>{
+        document.body.append(img);
+})
+.catch((error) => {
+        console.error(error)
+});
