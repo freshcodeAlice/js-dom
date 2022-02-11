@@ -1,50 +1,31 @@
 'use strict'
-// const prom = new Promise(function(resolve, reject){
-//     resolve(); // status - fufilled, промис разрешился
-
-//     // ИЛИ!
-
-//     reject(); // status - rejected, промис отклонен
-// })
-
-// prom.then(()=>{
-//     // resolve!
-// }, ()=>{
-//     // reject!
-// })
-
-// fetch('./assets/js/obj.json')
-// .then((response)=>{
-//    return response.json();
-// })
-// .then((data)=>{
-//     document.body.append(JSON.stringify(data));
-// })
-// .catch((error) => {
-//     document.body.append('Error happening!');
-// })
-// .finally(()=>{
-//     document.getElementById('load').remove();
-// });
 
 
+console.log('start');
 
-// WHATS THE DIFFERENCE&
+setTimeout(()=>{
+    console.log('timeOut log');
+},0);
 
-//promise.then(f1, f2)
+const p1 = new Promise((resolve, reject) =>{
+    console.log('Promise creation');
 
-//promise.then(f1).catch(f2) - is more cool!)
+    resolve();
+    reject();
+
+    console.log('Promise done');
+});
 
 
+p1.then(() =>{
+    console.log('Promise then');
+})
+.catch(()=>{
+    console.log('Promise catch');
+})
+.finally(()=>{
+    console.log('Promise finally');
+})
 
-try {
-    console.log(1);
-    throw new Error('error');
-    console.log(2);
-} catch {
-console.log('catch errror');
-} finally {
-    console.log('finally')
-}
 
-console.log('we are alive!')
+console.log('end');
