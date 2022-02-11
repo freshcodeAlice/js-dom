@@ -36,10 +36,15 @@
 //promise.then(f1).catch(f2) - is more cool!)
 
 
-class UserError extends Error{
-    constructor(message){
-        super(message);
-        this.userType = 'user';
-        Error.captureStackTrace(this, UserError);
-    }
+
+try {
+    console.log(1);
+    throw new Error('error');
+    console.log(2);
+} catch {
+console.log('catch errror');
+} finally {
+    console.log('finally')
 }
+
+console.log('we are alive!')
