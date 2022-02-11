@@ -1,16 +1,31 @@
 'use strict'
 
-function handlePromise(promise) {
-    return promise.then((data) => {
-        console.log(data);
-    })
+function sum(a,b) {
+    return a+b;
 }
 
-const numberPromise = new Promise((resolve, reject) =>{
-    resolve(42);
-});
-const numberPromise1 = Promise.resolve(42);
+function multyply(a,b){
+    return a*b;
+}
 
-const numberPromise2 = Promise.reject(42).catch((error)=>{
-    console.log('error is', error);
-});
+function withLog(func, ...args){
+    const res = func(...args);
+    console.log(res);
+    return res;
+}
+
+//withLog(sum, 2, 3);
+
+function withLog2(func){ // Функция-Декоратор
+    return function(...args){
+        const res = func(...args);
+        console.log(res);
+        return res;
+    }
+}
+
+const sumWithLog = withLog2(sum);
+sumWithLog(2,7);
+
+const multyWithLog = withLog2(multyply);
+multyWithLog(2,2);
