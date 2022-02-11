@@ -6,12 +6,26 @@
          
         <script defer src="./assets/js/constants/data.js"></script>
         <script defer src="./assets/js/index.js"></script>
-
+        <link rel="stylesheet" href="./assets/css/weather.css">
 
     
     </head>
     <body>
-  
-<div id="load">LOADING...</div>
+        <section class="weather-section">
+            <article class="weather-article">
+                <h1> Whats the weather today? </h1>
+                <div class="weather-block">
+                    <form id="weather-form">
+                        <select name="city">
+                            <option value="kyiv">Kyiv</option>
+                            <option value="dnipro">Dnipro</option>
+                            <option value="zaporizhzhya">Zaporizhdzhia</option>
+                            <option value="kharkiv">Kharkiv</option>
+                        </select>
+                        <button>Get me weather</button>
+                    </form>
+                </div>
+            </article>
+        </section>
     </body>
 </html>

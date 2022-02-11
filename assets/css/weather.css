@@ -1,0 +1,32 @@
+.weather-section {
+width: 70vw;
+height: 70vh;
+background-image: url('https://media.nationalgeographic.org/assets/photos/000/263/26383.jpg');
+background-position: center;
+background-size: cover;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 25px;
+color: white;
+}
+
+.weather-article{
+background-color: rgba(255, 255, 255, 0.24);
+background-blend-mode: overlay;
+width: 65vw;
+height: 65vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.weather-block{
+
+}
+
+.widget-row{
+    color: black;
+    font-weight: bold;
+    font-size: 0.8em;
+}
