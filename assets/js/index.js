@@ -1,27 +1,36 @@
 'use strict'
+const prom = new Promise(function(resolve, reject){
+    resolve(); // status - fufilled, промис разрешился
 
-/*
-Task 1: переписать UserCard на асинхронную загрузку данных из json-объекта
+    // ИЛИ!
 
-Task2: 
-По клику - выделять карточку цветной рамочкой.
-По выделению карточки сохранять id выбранного пользователя в массив.
-В хедере сайта рендерить имена выбранных пользователей.
-Реализовать функционал удаления имен из этого списка.
-Когда имя удаляется из списка - удалять подсветку (выделение) карточки
+    reject(); // status - rejected, промис отклонен
+})
 
-*/
+prom.then(()=>{
+    // resolve!
+}, ()=>{
+    // reject!
+})
 
-fetch(url)
+fetch('./assets/js/obj.json')
 .then((response)=>{
-        return response.json();
+   return response.json();
 })
 .then((data)=>{
-//запустили рендер и создали кучу карточек
+    document.body.append(JSON.stringify(data));
 })
+.catch((error) => {
+    document.body.append('Error happening!');
+})
+.finally(()=>{
+    document.getElementById('load').remove();
+});
 
 
 
-function getCardActive(event){
+// WHATS THE DIFFERENCE&
 
-}
+//promise.then(f1, f2)
+
+//promise.then(f1).catch(f2) - is more cool!)
